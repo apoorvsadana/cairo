@@ -1,5 +1,7 @@
 #[cfg(not(feature = "std"))]
 use alloc::{vec, vec::Vec};
+#[cfg(not(feature = "std"))]
+use alloc::{vec, vec::Vec};
 #[cfg(feature = "std")]
 use std::collections::HashSet;
 

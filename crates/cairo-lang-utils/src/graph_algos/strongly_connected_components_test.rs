@@ -5,6 +5,8 @@ use std::collections::HashSet;
 
 #[cfg(not(feature = "std"))]
 use hashbrown::HashSet;
+#[cfg(not(feature = "std"))]
+use hashbrown::HashSet;
 use itertools::chain;
 use test_case::test_case;
 use test_log::test;

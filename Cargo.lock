@@ -34,8 +34,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "aho-corasick"
-version = "1.0.2"
+name = "allocator-api2"
+version = "0.2.15"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "56fc6cf8dc8c4158eed8649f9b8b0ea1518eb62b544fe9490d66fa0b349eafe9"
+
+[[package]]
+name = "anyhow"
+version = "1.0.70"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "43f6cb1bf222025340178f382c426f13757b2960e89779dfcb319c32542a5a41"
 dependencies = [
@@ -422,6 +428,7 @@ version = "2.0.0-rc5"
 dependencies = [
  "cairo-lang-utils",
  "env_logger",
+ "hashbrown 0.14.0",
  "indoc",
  "itertools",
  "num-bigint",
@@ -433,7 +440,6 @@ dependencies = [
  "serde",
  "test-case",
  "test-log",
- "thiserror",
 ]
 
 [[package]]
@@ -493,7 +499,7 @@ dependencies = [
  "cairo-lang-test-utils",
  "cairo-lang-utils",
  "env_logger",
- "indexmap 2.0.0",
+ "indexmap 2.0.0-pre",
  "indoc",
  "itertools",
  "pretty_assertions",
@@ -524,7 +530,7 @@ dependencies = [
  "cairo-lang-utils",
  "env_logger",
  "good_lp",
- "indexmap 2.0.0",
+ "indexmap 2.0.0-pre",
  "indoc",
  "itertools",
  "test-case",
@@ -617,7 +623,7 @@ dependencies = [
  "cairo-lang-utils",
  "env_logger",
  "id-arena",
- "indexmap 2.0.0",
+ "indexmap 2.0.0-pre",
  "indoc",
  "itertools",
  "log",
@@ -711,16 +717,9 @@ dependencies = [
  "ark-std 0.3.0",
  "cairo-felt",
  "cairo-lang-casm",
- "cairo-lang-compiler",
- "cairo-lang-defs",
- "cairo-lang-diagnostics",
- "cairo-lang-filesystem",
- "cairo-lang-lowering",
- "cairo-lang-semantic",
  "cairo-lang-sierra",
  "cairo-lang-sierra-ap-change",
  "cairo-lang-sierra-gas",
- "cairo-lang-sierra-generator",
  "cairo-lang-sierra-to-casm",
  "cairo-lang-sierra-type-size",
  "cairo-lang-starknet",
@@ -733,7 +732,6 @@ dependencies = [
  "num-integer",
  "num-traits 0.2.15",
  "pretty_assertions",
- "salsa",
  "test-case",
  "thiserror",
 ]
@@ -848,7 +846,7 @@ dependencies = [
  "cairo-lang-utils",
  "env_logger",
  "id-arena",
- "indexmap 2.0.0",
+ "indexmap 2.0.0-pre",
  "indoc",
  "itertools",
  "log",
@@ -1012,9 +1010,10 @@ dependencies = [
 name = "cairo-lang-utils"
 version = "2.0.0-rc5"
 dependencies = [
+ "cairo-felt",
  "env_logger",
  "hashbrown 0.14.0",
- "indexmap 2.0.0",
+ "indexmap 2.0.0-pre",
  "itertools",
  "log",
  "num-bigint",
@@ -1731,6 +1730,11 @@ name = "hashbrown"
 version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2c6201b9ff9fd90a5a3bac2e56a830d0caa509576f0e503818ee82c181b3437a"
+dependencies = [
+ "ahash 0.8.3",
+ "allocator-api2",
+ "serde",
+]
 
 [[package]]
 name = "heck"
@@ -1861,12 +1865,10 @@ dependencies = [
 
 [[package]]
 name = "indexmap"
-version = "2.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d5477fe2230a79769d8dc68e0eabf5437907c0457a5614a9e8dddb67f65eb65d"
+version = "2.0.0-pre"
+source = "git+https://github.com/bluss/indexmap.git?rev=ca5f848e10c31e80aeaad0720d14aa2f6dd6cfb1#ca5f848e10c31e80aeaad0720d14aa2f6dd6cfb1"
 dependencies = [
- "equivalent",
- "hashbrown 0.14.0",
+ "hashbrown 0.13.2",
  "serde",
 ]
 
@@ -2271,10 +2273,8 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2287753623c76f953acd29d15d8100bcab84d29db78fb6f352adb3c53e83b967"
 dependencies = [
  "arrayvec",
- "bitvec",
  "byte-slice-cast",
  "impl-trait-for-tuples",
- "serde",
 ]
 
 [[package]]
@@ -3319,7 +3319,7 @@ version = "0.19.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "266f016b7f039eec8a1a80dfe6156b633d208b9fccca5e4db1d6775b0c4e34a7"
 dependencies = [
- "indexmap 2.0.0",
+ "indexmap 1.9.3",
  "toml_datetime",
  "winnow",
 ]

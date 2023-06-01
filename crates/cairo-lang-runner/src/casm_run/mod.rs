@@ -30,6 +30,7 @@ use num_integer::Integer;
 use num_traits::{ToPrimitive, Zero};
 use {ark_secp256k1 as secp256k1, ark_secp256r1 as secp256r1};
 
+use self::dict_manager::DictSquashExecScope;
 use crate::{build_hints_dict, Arg, RunResultValue, SierraCasmRunner};
 
 #[cfg(test)]
