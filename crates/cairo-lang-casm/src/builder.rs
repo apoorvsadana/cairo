@@ -1,8 +1,16 @@
-use std::collections::hash_map::Entry;
-use std::collections::HashMap;
+#[cfg(not(feature = "std"))]
+use alloc::borrow::ToOwned;
+#[cfg(not(feature = "std"))]
+use alloc::{string::String, vec, vec::Vec};
+#[cfg(feature = "std")]
+pub use std::borrow::ToOwned;
+#[cfg(feature = "std")]
+use std::collections::{hash_map::Entry, HashMap};
 
 use cairo_lang_utils::casts::IntoOrPanic;
 use cairo_lang_utils::extract_matches;
+#[cfg(not(feature = "std"))]
+use hashbrown::{hash_map::Entry, HashMap};
 use num_bigint::BigInt;
 use num_traits::One;
 
