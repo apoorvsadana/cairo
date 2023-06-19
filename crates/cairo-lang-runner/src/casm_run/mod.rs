@@ -1272,7 +1272,15 @@ where
     additional_initialization(RunFunctionContext { vm: &mut vm, data_len })?;
 
     runner
-        .run_until_pc(end, &mut RunResources::default(), &mut vm, hint_processor)
+        .run_until_pc(
+            end,
+            &mut RunResources::default(),
+            &mut vm,
+            hint_processor as &mut dyn HintProcessor,
+        )
+        .map_err(CairoRunError::from)?;
+    runner
+        .end_run(true, false, &mut vm, hint_processor as &mut dyn HintProcessor)
         .map_err(CairoRunError::from)?;
     runner.end_run(true, false, &mut vm, hint_processor).map_err(CairoRunError::from)?;
     runner.relocate(&mut vm, true).map_err(CairoRunError::from)?;
