@@ -63,9 +63,9 @@ fn main() -> anyhow::Result<()> {
         abi: None,
     };
     validate_compatible_sierra_version(&contract_class, list_selector)?;
-    let casm_contract =
-        CasmContractClass::from_contract_class(contract_class, args.add_pythonic_hints)
-            .with_context(|| "Compilation failed.")?;
+    let casm_contract = contract_class
+        .into_casm_contract_class(args.add_pythonic_hints)
+        .with_context(|| "Compilation failed.")?;
 
     let res = serde_json::to_string_pretty(&casm_contract)
         .with_context(|| "Casm contract Serialization failed.")?;
