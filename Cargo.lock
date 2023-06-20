@@ -304,9 +304,8 @@ checksum = "230c5f1ca6a325a32553f8640d31ac9b49f2411e901e427570154868b46da4f7"
 
 [[package]]
 name = "bincode"
-version = "2.0.0-rc.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f11ea1a0346b94ef188834a65c068a03aec181c94896d481d7a0a40d85b0ce95"
+version = "2.0.0-rc.2"
+source = "git+https://github.com/bincode-org/bincode.git?tag=v2.0.0-rc.2#6c219e9214bda2bdce1327db6ed7f66d2fa4bf02"
 dependencies = [
  "serde",
 ]
@@ -394,9 +393,8 @@ dependencies = [
 
 [[package]]
 name = "cairo-felt"
-version = "0.6.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "edaee21a254b549dd00ecb5db15399c8d03b663ddb5a659f7c62ea7e16a3ed85"
+version = "0.6.0"
+source = "git+https://github.com/keep-starknet-strange/cairo-rs?branch=no_std-support-with-cairo-1#a4865bf0a0885191dce50ea22ae40b4d3f8998cc"
 dependencies = [
  "lazy_static",
  "num-bigint",
@@ -1073,9 +1071,8 @@ dependencies = [
 
 [[package]]
 name = "cairo-take_until_unbalanced"
-version = "0.30.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "32c366b2a52b63db19fcc20a761ea37aa9f5fdce1723016c458e3990ef4fdf2c"
+version = "0.29.0"
+source = "git+https://github.com/keep-starknet-strange/cairo-rs?branch=no_std-support-with-cairo-1#a4865bf0a0885191dce50ea22ae40b4d3f8998cc"
 dependencies = [
  "nom",
 ]
@@ -1092,9 +1089,8 @@ dependencies = [
 
 [[package]]
 name = "cairo-vm"
-version = "0.6.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8be504f2684bab154d3bd45257c847db6fb450333305f162600dc497687d87d2"
+version = "0.6.0"
+source = "git+https://github.com/keep-starknet-strange/cairo-rs?branch=no_std-support-with-cairo-1#a4865bf0a0885191dce50ea22ae40b4d3f8998cc"
 dependencies = [
  "anyhow",
  "bincode",
