@@ -493,7 +493,7 @@ dependencies = [
  "cairo-lang-test-utils",
  "cairo-lang-utils",
  "env_logger",
- "indexmap 1.9.3",
+ "indexmap 2.0.0",
  "indoc",
  "itertools",
  "pretty_assertions",
@@ -524,7 +524,7 @@ dependencies = [
  "cairo-lang-utils",
  "env_logger",
  "good_lp",
- "indexmap 1.9.3",
+ "indexmap 2.0.0",
  "indoc",
  "itertools",
  "test-case",
@@ -617,7 +617,7 @@ dependencies = [
  "cairo-lang-utils",
  "env_logger",
  "id-arena",
- "indexmap 1.9.3",
+ "indexmap 2.0.0",
  "indoc",
  "itertools",
  "log",
@@ -848,7 +848,7 @@ dependencies = [
  "cairo-lang-utils",
  "env_logger",
  "id-arena",
- "indexmap 1.9.3",
+ "indexmap 2.0.0",
  "indoc",
  "itertools",
  "log",
@@ -1013,7 +1013,8 @@ name = "cairo-lang-utils"
 version = "2.0.0-rc5"
 dependencies = [
  "env_logger",
- "indexmap 1.9.3",
+ "hashbrown 0.14.0",
+ "indexmap 2.0.0",
  "itertools",
  "log",
  "num-bigint",
@@ -1482,6 +1483,12 @@ checksum = "88bffebc5d80432c9b140ee17875ff173a8ab62faad5b257da912bd2f6c1c0a1"
 
 [[package]]
 name = "errno"
+version = "0.2.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "88bffebc5d80432c9b140ee17875ff173a8ab62faad5b257da912bd2f6c1c0a1"
+
+[[package]]
+name = "errno"
 version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4bcfec3a70f97c962c307b2d2c56e358cf1d00b558d74262b5f929ee8cc7e73a"
@@ -1860,6 +1867,7 @@ checksum = "d5477fe2230a79769d8dc68e0eabf5437907c0457a5614a9e8dddb67f65eb65d"
 dependencies = [
  "equivalent",
  "hashbrown 0.14.0",
+ "serde",
 ]
 
 [[package]]

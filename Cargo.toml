@@ -73,9 +73,11 @@ genco = "0.17.0"
 good_lp = { version = "1.3.2", features = ["minilp"], default-features = false }
 id-arena = "2.2.1"
 ignore = "0.4.20"
-indexmap = { version = "1.9.1", features = ["serde"] }
-indoc = "2.0.1"
-itertools = "0.10.3"
+indexmap = { version = "2.0.0", features = ["serde"], default-features = false }
+indoc = { version = "2.0.1", default-features = false }
+itertools = { version = "0.10.5", default-features = false, features = [
+    "use_alloc",
+] }
 keccak = "0.1.3"
 lalrpop-util = { version = "0.19.9", features = ["lexer"] }
 log = "0.4"
