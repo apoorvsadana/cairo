@@ -1,3 +1,8 @@
+#[cfg(not(feature = "std"))]
+use alloc::format;
+#[cfg(not(feature = "std"))]
+use alloc::string::{String, ToString};
+#[cfg(not(feature = "std"))]
 use core::fmt::{Display, Formatter};
 
 use cairo_lang_utils::bigint::BigIntAsHex;
@@ -6,7 +11,6 @@ use parity_scale_codec_derive::{Decode, Encode};
 use serde::{Deserialize, Serialize};
 
 use crate::operand::{CellRef, DerefOrImmediate, ResOperand};
-
 #[cfg(test)]
 mod test;
 
@@ -90,17 +94,6 @@ impl From<CoreHint> for CoreHintBase {
 impl From<DeprecatedHint> for CoreHintBase {
     fn from(value: DeprecatedHint) -> Self {
         CoreHintBase::Deprecated(value)
-    }
-}
-
-impl Display for CoreHintBase {
-    fn fmt(&self, f: &mut Formatter<'_>) -> core::fmt::Result {
-        match self {
-            CoreHintBase::Core(hint) => hint.fmt(f),
-            CoreHintBase::Deprecated(_) => {
-                unreachable!("Deprecated hints do not have a pythonic version.")
-            }
-        }
     }
 }
 

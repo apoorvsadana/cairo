@@ -12,7 +12,7 @@ mod no_std_imports {
 }
 
 #[cfg(feature = "std")]
-use std::borrow::ToOwned;
+pub use std::borrow::ToOwned;
 #[cfg(feature = "std")]
 use std::collections::{hash_map::Entry, HashMap};
 

@@ -7,10 +7,11 @@ use ark_ff::{BigInteger, PrimeField};
 use cairo_felt::Felt252;
 use cairo_lang_casm::hints::{Hint, StarknetHint};
 use cairo_lang_casm::instructions::Instruction;
-use cairo_lang_casm::operand::ResOperand;
+use cairo_lang_casm::operand::{CellRef, ResOperand};
 use cairo_lang_sierra::ids::FunctionId;
+use cairo_lang_utils::bigint::BigIntAsHex;
 use cairo_lang_vm_utils::{
-    execute_core_hint_base, extract_buffer, get_ptr, get_val, insert_value_to_cellref,
+    execute_core_hint_base, extract_buffer, get_ptr, insert_value_to_cellref,
 };
 use cairo_vm::hint_processor::hint_processor_definition::{HintProcessor, HintReference};
 use cairo_vm::serde::deserialize_program::{
@@ -30,7 +31,6 @@ use num_integer::Integer;
 use num_traits::{ToPrimitive, Zero};
 use {ark_secp256k1 as secp256k1, ark_secp256r1 as secp256r1};
 
-use self::dict_manager::DictSquashExecScope;
 use crate::{build_hints_dict, Arg, RunResultValue, SierraCasmRunner};
 
 #[cfg(test)]
@@ -217,6 +217,15 @@ impl VMWrapper for VirtualMachine {
     fn vm(&mut self) -> &mut VirtualMachine {
         self
     }
+}
+
+/// Extracts a parameter assumed to be a buffer, and converts it into a relocatable.
+fn extract_relocatable(
+    vm: &VirtualMachine,
+    buffer: &ResOperand,
+) -> Result<Relocatable, VirtualMachineError> {
+    let (base, offset) = extract_buffer(buffer);
+    get_ptr(vm, base, &offset)
 }
 
 /// Creates a new segment in the VM memory and writes data to it, returing the start and end
