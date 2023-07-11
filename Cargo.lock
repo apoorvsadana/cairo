@@ -342,12 +342,13 @@ dependencies = [
 [[package]]
 name = "cairo-felt"
 version = "0.6.0"
-source = "git+https://github.com/keep-starknet-strange/cairo-rs?branch=no_std-support-with-cairo-1#a4865bf0a0885191dce50ea22ae40b4d3f8998cc"
+source = "git+https://github.com/apoorvsadana/cairo-rs?branch=dev/query_tx_version#05d1cbbce8d869b069cc340857d5dee03dd4453b"
 dependencies = [
  "lazy_static",
  "num-bigint",
  "num-integer",
  "num-traits 0.2.15",
+ "parity-scale-codec",
  "serde",
 ]
 
@@ -1014,7 +1015,7 @@ dependencies = [
 [[package]]
 name = "cairo-take_until_unbalanced"
 version = "0.29.0"
-source = "git+https://github.com/keep-starknet-strange/cairo-rs?branch=no_std-support-with-cairo-1#a4865bf0a0885191dce50ea22ae40b4d3f8998cc"
+source = "git+https://github.com/apoorvsadana/cairo-rs?branch=dev/query_tx_version#05d1cbbce8d869b069cc340857d5dee03dd4453b"
 dependencies = [
  "nom",
 ]
@@ -1031,7 +1032,7 @@ dependencies = [
 [[package]]
 name = "cairo-vm"
 version = "0.6.0"
-source = "git+https://github.com/keep-starknet-strange/cairo-rs?branch=no_std-support-with-cairo-1#a4865bf0a0885191dce50ea22ae40b4d3f8998cc"
+source = "git+https://github.com/apoorvsadana/cairo-rs?branch=dev/query_tx_version#05d1cbbce8d869b069cc340857d5dee03dd4453b"
 dependencies = [
  "anyhow",
  "bincode",
@@ -2177,20 +2178,21 @@ checksum = "b15813163c1d831bf4a13c3610c05c0d03b39feb07f7e09fa234dac9b15aaf39"
 
 [[package]]
 name = "parity-scale-codec"
-version = "3.5.0"
+version = "3.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5ddb756ca205bd108aee3c62c6d3c994e1df84a59b9d6d4a5ea42ee1fd5a9a28"
+checksum = "756d439303e94fae44f288ba881ad29670c65b0c4b0e05674ca81061bb65f2c5"
 dependencies = [
  "arrayvec",
  "byte-slice-cast",
  "impl-trait-for-tuples",
+ "parity-scale-codec-derive",
 ]
 
 [[package]]
 name = "parity-scale-codec-derive"
-version = "3.1.4"
+version = "3.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "86b26a931f824dd4eca30b3e43bb4f31cd5f0d3a403c5f5ff27106b805bfde7b"
+checksum = "9d884d78fcf214d70b1e239fcd1c6e5e95aa3be1881918da2e488cc946c7a476"
 dependencies = [
  "proc-macro-crate",
  "proc-macro2",
@@ -2381,18 +2383,18 @@ dependencies = [
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.60"
+version = "1.0.64"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dec2b086b7a862cf4de201096214fa870344cf922b2b30c167badb3af3195406"
+checksum = "78803b62cbf1f46fde80d7c0e803111524b9877184cfe7c3033659490ac7a7da"
 dependencies = [
  "unicode-ident",
 ]
 
 [[package]]
 name = "quote"
-version = "1.0.28"
+version = "1.0.29"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1b9ab9c7eadfd8df19006f1cf1a4aed13540ed5cbc047010ece5826e10825488"
+checksum = "573015e8ab27661678357f27dc26460738fd2b6c86e46f386fde94cb5d913105"
 dependencies = [
  "proc-macro2",
 ]
@@ -2847,9 +2849,8 @@ dependencies = [
 
 [[package]]
 name = "starknet-crypto"
-version = "0.5.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "693e6362f150f9276e429a910481fb7f3bcb8d6aa643743f587cfece0b374874"
+version = "0.6.0"
+source = "git+https://github.com/xJonathanLEI/starknet-rs?branch=dev/query_tx_version#73151f51215acb26b2cdc79336f80bbee4fad3f4"
 dependencies = [
  "crypto-bigint",
  "hex",
@@ -2867,9 +2868,8 @@ dependencies = [
 
 [[package]]
 name = "starknet-crypto-codegen"
-version = "0.3.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e6dc88f1f470d9de1001ffbb90d2344c9dd1a615f5467daf0574e2975dfd9ebd"
+version = "0.3.2"
+source = "git+https://github.com/xJonathanLEI/starknet-rs?branch=dev/query_tx_version#73151f51215acb26b2cdc79336f80bbee4fad3f4"
 dependencies = [
  "starknet-curve",
  "starknet-ff",
@@ -2878,18 +2878,16 @@ dependencies = [
 
 [[package]]
 name = "starknet-curve"
-version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "252610baff59e4c4332ce3569f7469c5d3f9b415a2240d698fb238b2b4fc0942"
+version = "0.4.0"
+source = "git+https://github.com/xJonathanLEI/starknet-rs?branch=dev/query_tx_version#73151f51215acb26b2cdc79336f80bbee4fad3f4"
 dependencies = [
  "starknet-ff",
 ]
 
 [[package]]
 name = "starknet-ff"
-version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0f5e4d14a7e5a93027baa42f514459acd1e07799f886604d8bf5d30a0d28111f"
+version = "0.3.4"
+source = "git+https://github.com/xJonathanLEI/starknet-rs?branch=dev/query_tx_version#73151f51215acb26b2cdc79336f80bbee4fad3f4"
 dependencies = [
  "ark-ff",
  "crypto-bigint",
